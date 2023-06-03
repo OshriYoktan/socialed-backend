@@ -10,7 +10,7 @@ module.exports = {
 
 async function query(filterBy) {
     try {
-        var sql = `SELECT * FROM user`
+        var sql = `SELECT * FROM users`
         const users = await dbService.runSQL(sql)
         if (filterBy.q) {
             return users.filter((user) => {
@@ -28,7 +28,7 @@ async function query(filterBy) {
 }
 
 async function getUserById(userId) {
-    var sql = `SELECT * FROM user WHERE _id = '${userId}'`;
+    var sql = `SELECT * FROM users WHERE _id = '${userId}'`;
     var user = await dbService.runSQL(sql);
     if (user.length === 1) {
         const userToReturn = _readyForSend(user[0])
@@ -79,7 +79,7 @@ async function updateUser(user) {
 
 async function removeUser(userId) {
     try {
-        var sql = `DELETE FROM user WHERE _id = '${userId}'`;
+        var sql = `DELETE FROM users WHERE _id = '${userId}'`;
         const res = await dbService.runSQL(sql)
             .then(okPacket => okPacket.affectedRows === 1
                 ? okPacket

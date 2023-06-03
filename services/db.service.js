@@ -2,10 +2,10 @@ var mysql = require('mysql');
 
 var pool = mysql.createPool({
     connectionLimit: 100,
-    host: 'sql6.freesqldatabase.com',
-    user: 'sql6583091',
-    password: 'zifZV6kfFD',
-    database: 'sql6583091'
+    host: 'us-cdbr-east-03.cleardb.com',
+    user: 'be6d4851b3a4ec',
+    password: 'ce6e6dae',
+    database: 'heroku_5188455ad9124e3'
 });
 
 
